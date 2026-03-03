@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;600;700&family=Bebas+Neue&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-mono:    'IBM Plex Mono', monospace;
+  --font-display: 'Bebas Neue', sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: #060608;
+  color: #d8d8e8;
+  font-family: var(--font-mono);
+  overflow-x: hidden;
+}
+
+/* ── Scanline overlay ─────────────────────────────── */
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0,0,0,0.07) 2px,
+    rgba(0,0,0,0.07) 4px
+  );
+  pointer-events: none;
+  z-index: 9998;
+}
+
+/* ── Grid texture ─────────────────────────────────── */
+body::after {
+  content: '';
+  position: fixed; inset: 0;
+  background-image:
+    linear-gradient(rgba(0,255,136,0.022) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,255,136,0.022) 1px, transparent 1px);
+  background-size: 32px 32px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Scrollbar ────────────────────────────────────── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #060608; }
+::-webkit-scrollbar-thumb { background: #1c1c28; border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: #00ff88; }
+
+/* ── Utility classes ──────────────────────────────── */
+.font-display { font-family: var(--font-display); }
+.font-mono    { font-family: var(--font-mono); }
+
+.glow-green {
+  text-shadow: 0 0 20px rgba(0,255,136,0.4);
+}
+
+.green-dim-bg {
+  background: rgba(0,255,136,0.08);
+}
+
+.green-glow-bg {
+  background: rgba(0,255,136,0.04);
+}
+
+/* ── Spike badge flicker ──────────────────────────── */
+@keyframes flickerRed {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.5; }
+}
+.animate-flicker { animation: flickerRed 1s infinite; }
