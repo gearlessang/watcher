@@ -10,7 +10,7 @@ Autonomous crypto intelligence agent monitoring Base Network tokens in real-time
 - **DexScreener API** — Public, no API key required
 - **Conway Cloud** — Autonomous deployment + payments via x402/USDC
 
-## Project Structure
+## Project Struccture
 
 ```
 watcher/
