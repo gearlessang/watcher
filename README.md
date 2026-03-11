@@ -17,7 +17,7 @@ watcher/
 ├── app/
 │   ├── layout.tsx          # Root layout + metadata
 │   ├── page.tsx            # Main client shell
-│   ├── globals.css         # Global styles + CSS variables
+│   ├── globals.css         # Global styles + CSS variabless
 │   └── api/
 │       └── tokens/
 │           └── route.ts    # Server-side DexScreener proxy (5min ISR)
